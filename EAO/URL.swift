@@ -6,9 +6,9 @@
 //  Copyright © 2017 FreshWorks. All rights reserved.
 //
 
-extension URL{
-	public init(photoId: String){
-		self.init(fileURLWithPath: FileManager.directory.absoluteString)
+extension URL {
+	public init(photoId: String) {
+		self.init(fileURLWithPath: FileManager.workDirectory.absoluteString)
 		appendPathComponent(photoId)
 		//(fileURLWithPath: FileManager.directory.absoluteString).appendingPathComponent(id, isDirectory: true)
 	}

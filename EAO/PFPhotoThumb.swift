@@ -8,22 +8,22 @@
 
 import Parse
 
-final class PFPhotoThumb: PFObject, PFSubclassing{
-    ///Use this variable for image caching
-    @objc var image : UIImage?
-
-    @NSManaged var id            : String?
-    @NSManaged var observationId : String?
+final class PFPhotoThumb: PFObject, PFSubclassing {
+    
+    @NSManaged var id: String?
+    @NSManaged var observationId: String?
     @NSManaged var index: NSNumber?
-    // original asset type: Video? Photo?
+    // original asset type: "Video" "Photo"
     @NSManaged var originalType: String?
+    @NSManaged var file: PFFileObject?
+    @NSManaged var observation: PFObservation?
 
     static func parseClassName() -> String {
         return "PhotoThumb"
     }
-
-    @objc static func load(for observationId: String, result: @escaping (_ photos: [PFPhotoThumb]?)->Void){
-        guard let query = PFPhotoThumb.query() else{
+    
+    @objc static func load(for observationId: String, result: @escaping (_ photos: [PFPhotoThumb]?)->Void) {
+        guard let query = PFPhotoThumb.query() else {
             result(nil)
             return
         }
@@ -33,12 +33,13 @@ final class PFPhotoThumb: PFObject, PFSubclassing{
             result(photos as? [PFPhotoThumb])
         })
     }
-
-    @objc func get() -> Data?{
-        guard let id = id else{
+    
+    @objc func get() -> Data? {
+        guard let id = id else {
             return nil
         }
-        let url = URL(fileURLWithPath: FileManager.directory.absoluteString).appendingPathComponent(id, isDirectory: true)
+        let url = URL(fileURLWithPath: FileManager.workDirectory.absoluteString).appendingPathComponent(id, isDirectory: true)
         return try? Data(contentsOf: url)
     }
 }
+

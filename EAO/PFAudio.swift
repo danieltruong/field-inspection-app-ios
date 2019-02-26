@@ -8,24 +8,25 @@
 
 import Parse
 
-final class PFAudio: PFObject, PFSubclassing{
-
-    @NSManaged var id            : String?
-    @NSManaged var observationId : String?
-    @NSManaged var inspectionId : String?
-    @NSManaged var coordinate    : PFGeoPoint?
+final class PFAudio: PFObject, PFSubclassing {
+    
+    @NSManaged var id: String?
+    @NSManaged var observationId: String?
+    @NSManaged var inspectionId: String?
+    @NSManaged var coordinate: PFGeoPoint?
     @NSManaged var index: NSNumber?
     @NSManaged var notes: String?
     @NSManaged var title: String?
     @NSManaged var url: URL?
-    @NSManaged var file : PFFile?
+    @NSManaged var file: PFFileObject?
+    @NSManaged var observation: PFObservation?
 
     static func parseClassName() -> String {
-        return "audio"
+        return "Audio"
     }
-
-    @objc static func load(for observationId: String, result: @escaping (_ audios: [PFAudio]?)->Void){
-        guard let query = PFAudio.query() else{
+    
+    @objc static func load(for observationId: String, result: @escaping (_ audios: [PFAudio]?)->Void) {
+        guard let query = PFAudio.query() else {
             result(nil)
             return
         }
@@ -35,20 +36,21 @@ final class PFAudio: PFObject, PFSubclassing{
             result(audios as? [PFAudio])
         })
     }
-
-    @objc func get() -> Data?{
-        guard let id = id else{
+    
+    @objc func get() -> Data? {
+        guard let id = id else {
             return nil
         }
-        let url = URL(fileURLWithPath: FileManager.directory.absoluteString).appendingPathComponent(id, isDirectory: true)
+        let url = URL(fileURLWithPath: FileManager.workDirectory.absoluteString).appendingPathComponent(id, isDirectory: true)
         return try? Data(contentsOf: url)
     }
-
-    @objc func getURL() -> Data?{
-        guard let id = id else{
+    
+    @objc func getURL() -> Data? {
+        guard let id = id else {
             return nil
         }
-        let url = URL(fileURLWithPath: FileManager.directory.absoluteString).appendingPathComponent(id, isDirectory: true)
+        let url = URL(fileURLWithPath: FileManager.workDirectory.absoluteString).appendingPathComponent(id, isDirectory: true)
         return try? Data(contentsOf: url)
     }
 }
+

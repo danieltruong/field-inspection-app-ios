@@ -1,18 +1,24 @@
 PODS:
-  - Alamofire (4.7.0)
-  - AlamofireObjectMapper (5.0.0):
-    - Alamofire (~> 4.1)
-    - ObjectMapper (~> 3.0)
+  - Alamofire (4.8.1)
+  - AlamofireObjectMapper (5.2.0):
+    - Alamofire (~> 4.7)
+    - ObjectMapper (~> 3.4)
   - Bolts/Tasks (1.9.0)
-  - Crashlytics (3.10.1):
-    - Fabric (~> 1.7.5)
-  - Fabric (1.7.6)
-  - IQKeyboardManager (5.0.8)
-  - ObjectMapper (3.1.0)
-  - Parse (1.17.1):
-    - Parse/Core (= 1.17.1)
-  - Parse/Core (1.17.1):
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
+  - IQKeyboardManager (6.2.0)
+  - ObjectMapper (3.4.2)
+  - Parse (1.17.2):
+    - Parse/Core (= 1.17.2)
+  - Parse/Core (1.17.2):
     - Bolts/Tasks (~> 1.9)
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - RealmSwift (3.13.1):
+    - Realm (= 3.13.1)
+  - SwiftLint (0.30.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -20,10 +26,13 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric
   - IQKeyboardManager
+  - ObjectMapper
   - Parse
+  - RealmSwift
+  - SwiftLint
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - AlamofireObjectMapper
     - Bolts
@@ -32,17 +41,23 @@ SPEC REPOS:
     - IQKeyboardManager
     - ObjectMapper
     - Parse
+    - Realm
+    - RealmSwift
+    - SwiftLint
 
 SPEC CHECKSUMS:
-  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
-  AlamofireObjectMapper: 5fafc816351cbbc0d486611aaeba7461c0cbad49
+  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
+  AlamofireObjectMapper: 92b6ce2423a9d159e686f6a1d514a009bf903ddc
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
-  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
-  IQKeyboardManager: 266cb7b1d11f94a3e71229d77f960f9a1b538e5b
-  ObjectMapper: 20505058f54e5c3ca69e1d6de9897d152a5369a6
-  Parse: d3edaf8c7c722cb33cb83ba7821d015ae32d362d
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  IQKeyboardManager: 6194101620b73af5e67900b8f89707a99de0b804
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  RealmSwift: 8a1e6a02b7a08cd17a31e3115143fb69fe5f3fb9
+  SwiftLint: a54bf1fe12b55c68560eb2a7689dfc81458508f7
 
-PODFILE CHECKSUM: 610cb65011ab32c58df1c2219678d82038b3c4b4
+PODFILE CHECKSUM: 39bc9c5120332d2d376b5eb7d87e14e1d01385b2
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
